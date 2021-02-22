@@ -15,8 +15,8 @@
             "category": "Contributed",
             "url": "https://wonkystuff-uk.github.io/arduino/wonkystuffPlatform_0.0.1.zip",
             "archiveFileName": "wonkystuffPlatform_0.0.1.zip",
-            "checksum": "SHA-256:738b8430092b64a94ce09f79119c3030f87ae31c887b1c8166eb014dcdbbd3db",
-            "size": "100237",
+            "checksum": "SHA-256:8684761fa7fac77e046d25339569b268173988237c4ab42a40ab59399eb10c3c",
+            "size": "102555",
             "boards": [
               {
                 "name": "Wonkystuff Core1 Rev.D"
