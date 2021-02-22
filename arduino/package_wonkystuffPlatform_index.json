@@ -1,0 +1,40 @@
+{
+    "packages":
+    [
+      {
+        "name": "wonkystuffPlatform",
+        "maintainer": "wonkystuff",
+        "websiteURL": "https://wonkystuff.net",
+        "email" : "info@wonkystuff.net",
+        "platforms":
+        [
+          {
+            "name": "Wonkystuff Core1",
+            "architecture": "avr",
+            "version": "0.0.1",
+            "category": "Contributed",
+            "url": "https://wonkystuff-uk.github.io/arduino/wonkystuffPlatform_0.0.1.zip",
+            "archiveFileName": "wonkystuffPlatform_0.0.1.zip",
+            "checksum": "SHA-256:394ffa361c112f4b4ebe4d015f110aa0b9a909b29e2019fff62f3732f99b3dfe",
+            "size": "102785",
+            "boards": [
+              {
+                "name": "Wonkystuff Core1 Rev.D"
+              }
+            ],
+            "toolsDependencies":
+            [
+              {
+                  "packager": "arduino",
+                  "name": "avr-gcc",
+                  "version": "7.3.0-atmel3.6.1-arduino7"
+              }
+            ]
+          }
+        ],
+        "tools":
+        [
+        ]
+      }
+    ]
+  }
