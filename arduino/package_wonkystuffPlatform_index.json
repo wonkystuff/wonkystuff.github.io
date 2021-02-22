@@ -2,7 +2,7 @@
     "packages":
     [
       {
-        "name": "wonkystuff boards",
+        "name": "wonkystuffPlatform",
         "maintainer": "wonkystuff",
         "websiteURL": "https://wonkystuff.net",
         "email" : "info@wonkystuff.net",
@@ -15,8 +15,8 @@
             "category": "Contributed",
             "url": "https://wonkystuff-uk.github.io/arduino/wonkystuffPlatform_0.0.1.zip",
             "archiveFileName": "wonkystuffPlatform_0.0.1.zip",
-            "checksum": "SHA-256:05df90a1a23c10cc3d82f1e739ca8f488a83a50a1c1c278112c873b8a7486e26",
-            "size": "102319",
+            "checksum": "SHA-256:0f37799dfacaf6a9bc9e229f0f83e77fe58d6a724a7b83c189a90fe917a57a16",
+            "size": "102318",
             "boards": [
               {
                 "name": "Wonkystuff Core1 Rev.D"
