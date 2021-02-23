@@ -10,7 +10,7 @@ packages in order to program the _Core1_ board directly from the Arduino IDE.
   
 ## Installation
 
-See https://support.arduino.cc/hc/en-us/articles/360016119519-How-to-add-boards-in-the-board-manager
+See [How to add boards in the board manager](https://support.arduino.cc/hc/en-us/articles/360016119519-How-to-add-boards-in-the-board-manager)
 
 The wonkystuff _Boards Manager JSON file_ can be found here:
 
