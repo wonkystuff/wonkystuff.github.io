@@ -21,7 +21,7 @@ The wonkystuff _Boards Manager JSON URL_ is:
   https://wonkystuff-uk.github.io/arduino/package_wonkystuffPlatform_index.json
 ```
 
-Here are instructions on [how to add 3rd party hardware to the Arduino IDE](https://support.arduino.cc/hc/en-us/articles/360016466340-How-to-add-3rd-party-hardware-in-the-Arduino-IDE)
+Here are instructions on [how to add 3rd party hardware to the Arduino IDE](https://support.arduino.cc/hc/en-us/articles/360016466340-How-to-add-3rd-party-hardware-in-the-Arduino-IDE){:target="_blank" rel="noopener"}
 
 Once you've added the URL to the preferences page, you'll need to install
 the wonkystuff board package.
