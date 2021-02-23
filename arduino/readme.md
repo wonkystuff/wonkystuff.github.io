@@ -48,5 +48,6 @@ speakers.
 * **0.0.1** Initial version. `hex2wav.jar` has been compiled with a recent version of Java, so may not work on all platforms (`java.lang.UnsupportedClassVersionError`) - this will be addressed in the next version.
 * **0.0.2** _BUGFIX_ `hex2wav.jar` has been recompiled to target JRE8.
 * **0.0.3** _BUGFIX_ Upload works even if no programmer is selected.
+* **0.0.4** Added a couple of simple examples to check functionality.
 
 Please raise any issues on the [issue tracker](https://github.com/wonkystuff-uk/wonkystuff-uk.github.io/issues)!
