@@ -22,4 +22,4 @@ The wonkystuff _Boards Manager JSON file_ can be found here:
 
 * **0.0.1** Initial version. `hex2wav.jar` has been compiled with a recent version of Java, so may not work on all platforms (`java.lang.UnsupportedClassVersionError`) - this will be addressed in the next version.
 
-Please raise any issues on the issue tracker!
+Please raise any issues on the [issue tracker](https://github.com/wonkystuff-uk/wonkystuff-uk.github.io/issues)!
