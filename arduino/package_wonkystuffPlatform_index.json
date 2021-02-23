@@ -76,6 +76,29 @@
                   "version": "7.3.0-atmel3.6.1-arduino7"
               }
             ]
+          },
+          {
+            "name": "Wonkystuff Core1",
+            "architecture": "avr",
+            "version": "0.0.4",
+            "category": "Contributed",
+            "url": "https://wonkystuff-uk.github.io/arduino/wonkystuffPlatform_0.0.4.zip",
+            "archiveFileName": "wonkystuffPlatform_0.0.4.zip",
+            "checksum": "SHA-256:1c3c0b1ab47080745e0bc594f4fa5840c682fc4328d909af9953786e8e2b7719",
+            "size": "114352",
+            "boards": [
+              {
+                "name": "Wonkystuff Core1 Rev.D"
+              }
+            ],
+            "toolsDependencies":
+            [
+              {
+                  "packager": "arduino",
+                  "name": "avr-gcc",
+                  "version": "7.3.0-atmel3.6.1-arduino7"
+              }
+            ]
           }
         ],
         "tools":
