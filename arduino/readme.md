@@ -72,5 +72,8 @@ until you achieve success.
 * **0.0.3** _BUGFIX_ Upload works even if no programmer is selected.
 * **0.0.4** Added a couple of simple examples to check functionality.
 * **0.0.5** `Export Compiled Binary` now generates a `wav` file alongside the output hex.
+* **0.0.6** Improved the `hex2wav` file so that when exporting a `wav` file it's not
+  played. Also appear to have re-introduced the bug when no programmer is selected.
+  Workaround is to set the programmer in the Tools menu.
 
 Please raise any issues on the [issue tracker](https://github.com/wonkystuff-uk/wonkystuff-uk.github.io/issues)!
