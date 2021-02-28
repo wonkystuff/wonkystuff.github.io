@@ -33,7 +33,7 @@ now see **Wonkystuff Core1** - click on the text and then click the `install` bu
 
 After a short-ish time, this should be done and the boards manager window can be closed.
 
-Now in the Arduino IDE, select `Tools` -> `Board <something>` -> `wonkystuff boards`
+Now in the Arduino IDE, select `Tools` -> `Board <something>` -> `wonkystuff boards` -> `Core1.D (audio bootloader)`
 
 That's it. With a test sketch (empty, or blink for example), click upload and the
 program should compile and then play the generated code through your computer
@@ -52,7 +52,7 @@ You will need:
 1. Connect the audio output of the computer to the audio input of the _Core1_
    using the 3.5mm jack-to-jack cable;
 1. Switch on the Core1 (connect battery first of course);
-1. Adjust the 4th control knob to around its middle position;
+1. Adjust the 4th control knob (marked IV) to around its middle position;
 1. Press and hold the **RESET** button - the LED will light;
 1. Hold the **RESET** button until the LED goes out. The _Core1_ is now listening
    out for a program to be downloaded to it.
@@ -64,6 +64,17 @@ You will need:
 That's it! It may be that you need to play with the volume control on your
 computer until the code is read - you might need to restart from stage 4
 until you achieve success.
+
+# Examples
+
+Here we will add some examples as audio files which you can download and program
+into your Core1.
+
+## dr1a
+
+This is the base software for the Core1 Rev.C, translated into audio format!
+
+[Download Here](./dr1a.ino.wav)
 
 # Version History
 
@@ -77,3 +88,4 @@ until you achieve success.
   Workaround is to set the programmer in the Tools menu.
 
 Please raise any issues on the [issue tracker](https://github.com/wonkystuff-uk/wonkystuff-uk.github.io/issues)!
+
