@@ -6,7 +6,9 @@ You will need:
 
 - _Core1_ board (and battery pack);
 - A computer with a headphone output;
-- A 3.5mm jack-to-jack cable;
+- A 3.5mm jack-to-jack cable (we use a stereo/TRS cable because we are plugging
+  into the headphone output of a laptop, but the Core1 audio input is mono,
+  so that sort of cable will work if you have a mono output);
 
 1. Connect the audio output of the computer to the audio input of the _Core1_
    using the 3.5mm jack-to-jack cable;
