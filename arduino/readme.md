@@ -18,7 +18,7 @@ after the link and paste it in.
 The wonkystuff _Boards Manager JSON URL_ is:
 
 ```
-  https://wonkystuff-uk.github.io/arduino/package_wonkystuffPlatform_index.json
+  https://wonkystuff.github.io/arduino/package_wonkystuffPlatform_index.json
 ```
 
 Here are instructions on [how to add 3rd party hardware to the Arduino IDE](https://support.arduino.cc/hc/en-us/articles/360016466340-How-to-add-3rd-party-hardware-in-the-Arduino-IDE){:target="_blank" rel="noopener"}
@@ -87,5 +87,5 @@ This is the base software for the Core1 Rev.C, translated into audio format!
   played. Also appear to have re-introduced the bug when no programmer is selected.
   Workaround is to set the programmer in the Tools menu.
 
-Please raise any issues on the [issue tracker](https://github.com/wonkystuff-uk/wonkystuff-uk.github.io/issues)!
+Please raise any issues on the [issue tracker](https://github.com/wonkystuff/wonkystuff.github.io/issues)!
 
