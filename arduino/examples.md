@@ -27,6 +27,10 @@ with an Arduino Uno or Nano, and it has the same structure:
 This program is handy also for testing that your environment is
 set up correctly and you're able to reprogram the Core1.
 
+Since we are only concerned with switching the LED on and off,
+and are not too bothered about speed, we are using the standard
+arduino `digitalWrite` functions. More about output later!
+
 ## Variable blink
 
 This sketch extends the _Blink_ sketch, adding some control over
@@ -78,14 +82,28 @@ If you glance over the `SimpleSquare` sketch you'll see some
 extra lines of code that we didn't need for the blinking LED
 sketches above:
 
-- `#include "wonkystuffCommon.h"` on line 13 pulls in the
+- `#include "wonkystuffCommon.h"` pulls in the
   extra functions that we'll need to build the program;
-- `wsInit()` on line 19 sets up the processor so we can
-  use it for making noise;
-- `wsInitISR(20000)` is used to specify how quickly
+- `wsInit()` performs any setup that is required for the
+  wonkystuff APIs, so we can use it for making noise;
+- `wsInitAudioLoop(20000)` is used to specify how quickly
   `wsAudioLoop` is run. `20000` is the required sample rate
   specified in executions-per-second (Hz). The maximum
   sample rate is 65535 Hz.
+- `wsPinSet` and `wsPinClear` functions are used to write
+  'high' and 'low' to the outputs respectively. These are
+  used instead of the arduino `digitalWrite` APIs because
+  we're basically control freaks. Sorry 'bout that.
+
+The code within `wsAudioLoop` continually increments a
+variable `phase` which acts as a `phase accumulator`, the
+amount that it is incremented by depends on the value of
+the front panel control. `phase` runs from 0 to 65535, and
+then starts again, like a ramp waveform. The code simply
+looks at the value of the ramp, setting both outputs
+'high' if the phase is larger than the midpoint, and
+'low' otherwise (this gives us a square wave with equally-
+sized high and low parts).
 
 _A note about `wonkystuffCommon.h`_:
 > `wonkystuffCommon.h` is intended to contain some useful
