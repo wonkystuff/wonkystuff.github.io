@@ -5,8 +5,12 @@ sketches to show how to get started. With the Core1 board
 selected, they should appear in the
 `File`->`Examples`->`WonkystuffCore1` menu.
 
-After going through these, it's no up to you! We'd
+After going through these, it's now up to you! We'd
 love to see what you come up with…
+
+If things aren't clear, then please let us know either via email
+or by raising a ticket on the
+[issue tracker](https://github.com/wonkystuff/wonkystuff.github.io/issues)
 
 ## Blink
 
@@ -84,8 +88,8 @@ sketches above:
   sample rate is 65535 Hz.
 
 _A note about `wonkystuffCommon.h`_:
-> This file is intended to contain some useful definitions
-> as well as some useful APIs, for exampl we have defined
+> `wonkystuffCommon.h` is intended to contain some useful
+> definitions as well as APIs. For example we have defined
 > some identifiers to make reading the analogue controls a
 > bit more readable (use `wsKnob1` to `wsKnob4` instead of
 > `A0` to `A3`). This API will get some proper documentation
