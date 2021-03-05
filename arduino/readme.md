@@ -21,16 +21,19 @@ free to skip the parts you already know!
 
 ## Version History
 
-* **0.0.1** Initial version. `hex2wav.jar` has been compiled with a recent version of Java, so may not work on all platforms (`java.lang.UnsupportedClassVersionError`) - this will be addressed in the next version.
-* **0.0.2** _BUGFIX_ `hex2wav.jar` has been recompiled to target JRE8.
-* **0.0.3** _BUGFIX_ Upload works even if no programmer is selected.
-* **0.0.4** Added a couple of simple examples to check functionality.
-* **0.0.5** `Export Compiled Binary` now generates a `wav` file alongside the output hex.
+* **0.1.1** Corrected _Variable Blink_ example (rolleyes). _(05/03/2021)_
+* **0.1.0** Added some more examples to hopefully introduce some concepts. _(05/03/2021)_
 * **0.0.6** Improved the `hex2wav` file so that when exporting a `wav` file it's not
   played. Also appear to have re-introduced the bug when no programmer is selected.
   Workaround is to set the programmer in the Tools menu.
-* **0.1.0** Added some more examples to hopefully introduce some concepts.
-* **0.1.1** Corrected _Variable Blink_ example (rolleyes).
+* **0.0.5** `Export Compiled Binary` now generates a `wav` file alongside the output hex.
+* **0.0.4** Added a couple of simple examples to check functionality.
+
+* **0.0.3** _BUGFIX_ Upload works even if no programmer is selected.
+* **0.0.2** _BUGFIX_ `hex2wav.jar` has been recompiled to target JRE8.
+* **0.0.1** Initial version. `hex2wav.jar` has been compiled with a
+  recent version of Java, so may not work on all platforms
+  (`java.lang.UnsupportedClassVersionError`) - this will be addressed in the next version.
 
 Please raise any issues on the [issue tracker](https://github.com/wonkystuff/wonkystuff.github.io/issues)!
 
