@@ -87,6 +87,7 @@ This is the base software for the Core1 Rev.C, translated into audio format!
   played. Also appear to have re-introduced the bug when no programmer is selected.
   Workaround is to set the programmer in the Tools menu.
 * **0.1.0** Added some more examples to hopefully introduce some concepts.
+* **0.1.1** Corrected _Variable Blink_ example (rolleyes).
 
 Please raise any issues on the [issue tracker](https://github.com/wonkystuff/wonkystuff.github.io/issues)!
 
