@@ -96,7 +96,7 @@ sketches above:
   we're basically control freaks. Sorry 'bout that.
 
 The code within `wsAudioLoop` continually increments a
-variable `phase` which acts as a `phase accumulator`, the
+variable `phase` which acts as a _phase accumulator_, the
 amount that it is incremented by depends on the value of
 the front panel control. `phase` runs from 0 to 65535, and
 then starts again, like a ramp waveform. The code simply
