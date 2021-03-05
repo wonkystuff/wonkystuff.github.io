@@ -86,6 +86,7 @@ This is the base software for the Core1 Rev.C, translated into audio format!
 * **0.0.6** Improved the `hex2wav` file so that when exporting a `wav` file it's not
   played. Also appear to have re-introduced the bug when no programmer is selected.
   Workaround is to set the programmer in the Tools menu.
+* **0.1.0** Added some more examples to hopefully introduce some concepts.
 
 Please raise any issues on the [issue tracker](https://github.com/wonkystuff/wonkystuff.github.io/issues)!
 
