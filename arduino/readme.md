@@ -21,6 +21,9 @@ free to skip the parts you already know!
 
 ## Version History
 
+* **0.1.2** Split library sources into individual files; added more examples (ramp and poly);
+  added first attempt at the octave-lookup calculation; Fixed typo in `#include` of `Arduino.h`;
+  API changed for `wsInitAudio`; Tools menu changed to add Sample Rate selection.
 * **0.1.1** Corrected _Variable Blink_ example (rolleyes). _(05/03/2021)_
 * **0.1.0** Added some more examples to hopefully introduce some concepts. _(05/03/2021)_
 * **0.0.6** Improved the `hex2wav` file so that when exporting a `wav` file it's not
