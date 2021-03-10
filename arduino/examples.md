@@ -112,3 +112,11 @@ _A note about `wonkystuffCommon.h`_:
 > bit more readable (use `wsKnob1` to `wsKnob4` instead of
 > `A0` to `A3`). This API will get some proper documentation
 > at some point!
+
+## SimplePWM
+
+## AudioPWM
+
+## SimpleRamp
+
+## PolyRamp
