@@ -115,6 +115,28 @@ _A note about `wonkystuffCommon.h`_:
 
 ## SimplePWM
 
+Folowing on from the _SimpleSquare_ example, here we have
+another square-wave generator, but this one uses Pulse Width
+Modulation (PWM) to change the amplitude of the output!
+
+Until now, we have simply been writing a high or a low value
+to output 1; PWM allows us to write values in-between. By
+changing the value written to the PWM output we can therefore
+_modify the amplitude_ of our square wave!
+
+In addition to the code which we've already seen, we now
+make a call to `wsInitPWM` in `setup`. This function
+sets up output 1 for PWM (if you're interested, this uses
+Timer1 of the ATTiny, and runs the PWM at 250kHz).
+
+The other change is that instead of using the `wsPinSet`
+and `wsPinClear` functions, we use the `wsWriteToPWM` function
+which takes a value between 0 (minimum level) and 255 (maximum
+level). The _maximum level_ that we write to the pin is
+set by reading knob `IV`, whilst the pitch is again controlled
+by knob `III`. We use the right-shift operator `>>` to make
+sure that the numbers match what we want.
+
 ## AudioPWM
 
 ## SimpleRamp
