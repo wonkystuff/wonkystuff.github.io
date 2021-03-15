@@ -120,3 +120,5 @@ _A note about `wonkystuffCommon.h`_:
 ## SimpleRamp
 
 ## PolyRamp
+
+## WaveTable
