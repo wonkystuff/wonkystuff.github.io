@@ -70,13 +70,14 @@ We'll do this by making use of some special software tools to
 make this as simple as possible. The *big* change is the addition
 of another function called `wsAudioLoop`, which you can think of
 as a very fast version of the `loop` function described above.
-This is set up to run 20000 times per second (i.e. the
-_sampling rate_ is 20kHz). To work properly and predictably,
-the `wsAudioLoop` function must finish within 50 microseconds
-(µs) so that the processor has time to attend to the operations
-in the `loop` function as well. Think of `wsAudioLoop` as
-changing the position of the loudspeaker cone every time it
-runs.
+The rate at which this is called is defined by the `Sampling Rate`
+setting from the `Tools` menu. For example if 20kHz is selected,
+the `wsAudioLoop` function will run 20000 times per second. To
+work properly and predictably, the `wsAudioLoop` function must
+therefore finish within 50 microseconds (µs) so that the processor
+has time to attend to the operations in the `loop` function as well.
+Think of `wsAudioLoop` as changing the position of the loudspeaker
+cone every time it runs.
 
 If you glance over the `SimpleSquare` sketch you'll see some
 extra lines of code that we didn't need for the blinking LED
@@ -86,10 +87,7 @@ sketches above:
   extra functions that we'll need to build the program;
 - `wsInit()` performs any setup that is required for the
   wonkystuff APIs, so we can use it for making noise;
-- `wsInitAudioLoop(20000)` is used to specify how quickly
-  `wsAudioLoop` is run. `20000` is the required sample rate
-  specified in executions-per-second (Hz). The maximum
-  sample rate is 65535 Hz.
+- `wsInitAudioLoop()` is used to setup the sample-rate loop.
 - `wsPinSet` and `wsPinClear` functions are used to write
   'high' and 'low' to the outputs respectively. These are
   used instead of the arduino `digitalWrite` APIs because
