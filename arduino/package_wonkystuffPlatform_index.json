@@ -18,9 +18,8 @@
             "checksum": "SHA-256:0f37799dfacaf6a9bc9e229f0f83e77fe58d6a724a7b83c189a90fe917a57a16",
             "size": "102318",
             "boards": [
-              {
-                "name": "Wonkystuff Core1 Rev.D"
-              }
+              { "name": "Core1 Rev.D" },
+              { "name": "AE Modular core module" }
             ],
             "toolsDependencies":
             [
@@ -41,9 +40,8 @@
             "checksum": "SHA-256:59d5b67298df982a9575c012152b5c71fd4822bb5771d2d9fee55fa9b4c229f2",
             "size": "101682",
             "boards": [
-              {
-                "name": "Wonkystuff Core1 Rev.D"
-              }
+              { "name": "Core1 Rev.D" },
+              { "name": "AE Modular core module" }
             ],
             "toolsDependencies":
             [
@@ -64,9 +62,8 @@
             "checksum": "SHA-256:a5a6e5f4149600be5613b428cf77b9ca2240799f651b23d90318e6db394f46b9",
             "size": "101658",
             "boards": [
-              {
-                "name": "Wonkystuff Core1 Rev.D"
-              }
+              { "name": "Core1 Rev.D" },
+              { "name": "AE Modular core module" }
             ],
             "toolsDependencies":
             [
@@ -87,9 +84,8 @@
             "checksum": "SHA-256:1c3c0b1ab47080745e0bc594f4fa5840c682fc4328d909af9953786e8e2b7719",
             "size": "114352",
             "boards": [
-              {
-                "name": "Wonkystuff Core1 Rev.D"
-              }
+              { "name": "Core1 Rev.D" },
+              { "name": "AE Modular core module" }
             ],
             "toolsDependencies":
             [
@@ -110,9 +106,8 @@
             "checksum": "SHA-256:dd0798236fe0e813a2ea9c3e89aa55d3b07181cc5e6df7035ea162a1c0498e4c",
             "size": "114205",
             "boards": [
-              {
-                "name": "Wonkystuff Core1 Rev.D"
-              }
+              { "name": "Core1 Rev.D" },
+              { "name": "AE Modular core module" }
             ],
             "toolsDependencies":
             [
@@ -133,9 +128,8 @@
             "checksum": "SHA-256:6e2b7119e83744ac35a9c2f57ec5fc57c79c0e8043c4532501881f69516d6d09",
             "size": "105866",
             "boards": [
-              {
-                "name": "Wonkystuff Core1 Rev.D"
-              }
+              { "name": "Core1 Rev.D" },
+              { "name": "AE Modular core module" }
             ],
             "toolsDependencies":
             [
@@ -156,9 +150,8 @@
             "checksum": "SHA-256:5e1fefd7fa981c387eb549a477ac0589916c14184cd1181b53ed706daf9c7f87",
             "size": "111363",
             "boards": [
-              {
-                "name": "Wonkystuff Core1 Rev.D"
-              }
+              { "name": "Core1 Rev.D" },
+              { "name": "AE Modular core module" }
             ],
             "toolsDependencies":
             [
@@ -179,9 +172,8 @@
             "checksum": "SHA-256:4a9025370f57b0f078fd04db769efa0b462d27207e87860231935efde7c7f336",
             "size": "111780",
             "boards": [
-              {
-                "name": "Wonkystuff Core1 Rev.D"
-              }
+              { "name": "Core1 Rev.D" },
+              { "name": "AE Modular core module" }
             ],
             "toolsDependencies":
             [
@@ -202,9 +194,30 @@
             "checksum": "SHA-256:25203709042b716a880a0a928654a775f55c68df5940fe2f90dce2c29167ff70",
             "size": "251300",
             "boards": [
+              { "name": "Core1 Rev.D" },
+              { "name": "AE Modular core module" }
+            ],
+            "toolsDependencies":
+            [
               {
-                "name": "Wonkystuff Core1 Rev.D"
+                  "packager": "arduino",
+                  "name": "avr-gcc",
+                  "version": "7.3.0-atmel3.6.1-arduino7"
               }
+            ]
+          },
+          {
+            "name": "Wonkystuff Core1",
+            "architecture": "avr",
+            "version": "0.1.3",
+            "category": "Contributed",
+            "url": "https://wonkystuff.github.io/arduino/wonkystuffPlatform_0.1.3.zip",
+            "archiveFileName": "wonkystuffPlatform_0.1.3.zip",
+            "checksum": "SHA-256:b0f754e87274b9f511a0ac4cd04e2e985658f21be8039fffca552a541f7fae9d",
+            "size": "263476",
+            "boards": [
+              { "name": "Core1 Rev.D" },
+              { "name": "AE Modular core module" }
             ],
             "toolsDependencies":
             [
