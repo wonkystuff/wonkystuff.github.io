@@ -20,7 +20,9 @@ free to skip the parts you already know!
   included with the Core1 board manager package.
 
 ## Version History
-
+* **0.1.3** Added support for the _AE Modular_ version of the Core1. Added version
+  of the `dr1a` code as another example as well as a simple sine-wavetable version
+  of the _polyramp_ example.
 * **0.1.2** Split library sources into individual files; added more examples (ramp and poly);
   added first attempt at the octave-lookup calculation; Fixed typo in `#include` of `Arduino.h`;
   API changed for `wsInitAudio`; Tools menu changed to add Sample Rate selection.
