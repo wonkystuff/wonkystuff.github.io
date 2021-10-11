@@ -249,6 +249,28 @@
                   "version": "7.3.0-atmel3.6.1-arduino7"
               }
             ]
+          },
+          {
+            "name": "Wonkystuff Core1",
+            "architecture": "avr",
+            "version": "0.1.5",
+            "category": "Contributed",
+            "url": "https://wonkystuff.github.io/arduino/wonkystuffPlatform_0.1.5.zip",
+            "archiveFileName": "wonkystuffPlatform_0.1.5.zip",
+            "checksum": "SHA-256:58c4466c514f21ea18c2891c7aa4fc2a420d82c11e7e7008254ec43424a7d3a3",
+            "size": "263254",
+            "boards": [
+              { "name": "Core1 Rev.D" },
+              { "name": "AE Modular core module" }
+            ],
+            "toolsDependencies":
+            [
+              {
+                  "packager": "arduino",
+                  "name": "avr-gcc",
+                  "version": "7.3.0-atmel3.6.1-arduino7"
+              }
+            ]
           }
         ],
         "tools":
