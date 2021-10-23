@@ -20,6 +20,7 @@ free to skip the parts you already know!
   included with the Core1 board manager package.
 
 ## Version History
+* **0.1.6** Improved Karplus-Strong example and included as example _(23/10/2021)_
 * **0.1.5** Fixed misunderstanding about `delay()` and permanently disabled `millis()` _(11/10/2021)_
 * **0.1.4** Fixed Karplus-Strong example _(10/10/2021)_
 * **0.1.3** Added support for the _AE Modular_ version of the Core1. Added version
