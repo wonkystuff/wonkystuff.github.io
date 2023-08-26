@@ -106,7 +106,7 @@
       }
 
       body {
-        display: flex;
+        display: block;
         overflow-y: hidden;
         grid-template-columns: 200px 1fr;
       }
@@ -116,7 +116,7 @@
         flex-direction: column;
         padding: 1em 2ch;
         font-family: system-ui, sans-serif;
-        width: 50%;
+        width: 300px;
       }
       input,
       select {
@@ -144,8 +144,11 @@
         display:block;
         padding: 0;
         margin: 0;
+        height: 250px;
         width: 100%;
+        font-family: system-ui, sans-serif;
       }
+
       #shell {
         padding: 0 8px;
         font-family: monospace;
@@ -156,6 +159,7 @@
         height: 100%;
         background-color: #eee;
       }
+
       table,tr,td,th {
         text-align: left;
         border: 1px solid #ccc;
@@ -185,7 +189,7 @@
             <tr><td>12</td><td>1/8</td></tr>
             <tr><td>24</td><td>1/4</td></tr>
             <tr><td>48</td><td>1/2</td></tr>
-
+            <tr><td colspan="2">&nbsp;</td></tr>
             <tr><td>4</td><td>1/32t</td></tr>
             <tr><td>8</td><td>1/16t</td></tr>
             <tr><td>16</td><td>1/8t</td></tr>
