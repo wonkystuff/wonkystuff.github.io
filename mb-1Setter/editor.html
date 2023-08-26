@@ -74,7 +74,6 @@
             send(s)
         });
 
-        const error = (message) => print(message, "red");
         const transmit = await midi(chooser("tx"));
 
         function send(line) {
@@ -91,7 +90,7 @@
         }
 
         if (transmit == null)
-          return error("Web MIDI not supported or port access refused");
+            shellBlock.innerHTML += "Error sending message: " + line.trim();
         if (document.getElementById("tx").childNodes.length == 0) {
             shellBlock.innerHTML += "Warning: no MIDI outputs found";
         }
