@@ -61,34 +61,83 @@
             };
         }
 
+        function rangeCheck(number, min, max) {
+            var retVal = number
+            if (retVal < min) {
+                retVal = min;
+            } else if (retVal > max) {
+                retVal = max;
+            }
+            return retVal;
+        }
+
         document.addEventListener("DOMContentLoaded", async function () {
 
+            var deviceId = "00";
+            var chan = "00"
             const shellBlock = document.getElementById("shell");
+
+            const mdivId = document.getElementById("mdivId");
+            mdivId.onchange = function () {
+                var did = rangeCheck(document.querySelector("#mdivId").valueAsNumber, 1, 126)
+                document.querySelector("#mdivId").value = did;
+                deviceId = ` ${("00" + (did).toString(16)).substr(-2)}`
+            }
+
+            const moduleSelector = document.getElementById("modType");
+            moduleSelector.onchange = function () {
+                let e = document.getElementById("modType");
+                let et = e.options[e.selectedIndex].text;
+                var _md = document.getElementById('mdivOnly');
+
+                chan = ("00" + (e.value).toString(16)).substr(-2);
+
+                if (et.lastIndexOf("mdiv", 0) === 0) {
+                    _md.style.display = "table-row";
+                    var did = document.querySelector("#mdivId").valueAsNumber
+                    deviceId = ` ${("00" + (did).toString(16)).substr(-2)}`
+                } else {
+                    _md.style.display = "none";
+                    deviceId = "00";
+                }
+
+            }
             // listen for the button click to send data
             const divSendButton = document.querySelector("#divSend");
             divSendButton.addEventListener("click", function () {
-                let divNum = document.querySelector("#division").valueAsNumber - 1;
-                let d = `f0 00 20 13 1a 00 20 00 29 00 ${("00" + (divNum).toString(16)).substr(-2)} f7`;
+                let divNum = rangeCheck(document.querySelector("#division").valueAsNumber, 1, 128);
+                document.querySelector("#division").value = divNum;
+                let d = "f0 00 20 13 1a " + deviceId + " 20 00 29 " + chan + ` ${("00" + (divNum - 1).toString(16)).substr(-2)}` + " f7";
                 send(d)
             });
 
             const offSendButton = document.querySelector("#offSend");
             offSendButton.addEventListener("click", function () {
-                let offNum = document.querySelector("#offset").valueAsNumber;
-                let o = `f0 00 20 13 1a 00 20 00 2a 00 ${("00" + (offNum).toString(16)).substr(-2)} f7`;
+                let offNum = rangeCheck(document.querySelector("#offset").valueAsNumber, 0, 127);
+                document.querySelector("#offset").value = offNum;
+                let o = "f0 00 20 13 1a " + deviceId + " 20 00 2a " + chan + ` ${("00" + (offNum).toString(16)).substr(-2)}` + " f7";
                 send(o)
             });
 
             const storeButton = document.querySelector("#store");
             storeButton.addEventListener("click", function () {
-                let s = `f0 00 20 13 1a 00 20 00 7f 00 00 f7`;
+                let s = "f0 00 20 13 1a " + deviceId + " 20 00 7f " + chan + " 00 f7";
+
+                send(s)
+            });
+
+            const writeIdButton = document.querySelector("#storeId");
+            writeIdButton.addEventListener("click", function () {
+                // device ID is 0x7f as this is 'broadcast'
+                let s = "f0 00 20 13 1a 7f 20 00 41 " + chan + " " + deviceId + " f7";
+
                 send(s)
             });
 
             const transmit = await midi(chooser("tx"));
 
             function send(line) {
-                //shellBlock.innerHTML += '<p>' + line + '</p>';
+                shellBlock.innerHTML += '<code>' + line + '</code>\n';
                 const words = line.split(/\s+/).filter(Boolean);
 
                 const bytes = words.map((x) => Number("0x" + x));
@@ -99,6 +148,7 @@
                 } catch {
                     shellBlock.innerHTML += "Error sending message: " + line.trim();
                 }
+                shellBlock.scrollTop = shellBlock.scrollHeight;
             }
 
             if (transmit == null)
@@ -112,22 +162,13 @@
     <style>
         html,
         body {
-            width: 100%;
-            margin: 0;
-        }
-
-        body {
-            display: block;
-            overflow-y: hidden;
-            grid-template-columns: 400px 1fr;
+            font-family: system-ui, sans-serif;
         }
 
         #inputs {
-            display: flex;
-            flex-direction: column;
-            padding: 1em 2ch;
-            font-family: system-ui, sans-serif;
             width: 500px;
+            margin-left: 2em;
+
         }
 
         input,
@@ -153,13 +194,8 @@
             display: block;
         }
 
-        #rhs {
-            display: block;
-            padding: 0;
-            margin: 0;
+        #logBox {
             height: 250px;
-            width: 100%;
-            font-family: system-ui, sans-serif;
         }
 
         #shell {
@@ -167,10 +203,41 @@
             font-family: monospace;
             overflow-y: auto;
             border: 1px solid red;
-            margin: 2em;
+            margin-left: 2em;
             width: 75%;
             height: 100%;
             background-color: #eee;
+            counter-reset: line;
+
+        }
+
+        #lookup th,
+        #lookup td {
+            padding-right: 3em;
+            padding-left: 1em;
+
+        }
+
+        code {
+            counter-increment: line;
+            display: block;
+        }
+
+        code:before {
+            display: inline-block;
+            content: counter(line);
+            width: 3em;
+            text-align: left;
+        }
+
+
+        #mdivOnly {
+            display: none;
+        }
+
+        #storeId {
+            background-color: red;
+            color: white;
         }
 
         table,
@@ -178,92 +245,130 @@
         td,
         th {
             text-align: left;
-            vertical-align: center;
             border: 1px solid #ccc;
             border-collapse: collapse;
         }
 
-        .entry {
-            padding: 30px 30px;
-            margin: 30px;
+        .col1 {
+            padding: 10px 10px;
+            width: 50%;
+        }
+
+        .col2 {
+            padding: 10px 10px;
+            width: 25%;
+        }
+
+        .col3 {
+            padding: 10px 10px;
+            width: 25%;
+        }
+
+        .storeButton {
+            padding: 10px 10px;
+            text-align: right;
         }
     </style>
 </head>
 
 <body>
-    <div id="inputs">
-        <h1>Set division rate for mb/1</h1>
-        <label for="tx"> Select MIDI output port </label>
-        <select id="tx" name="tx" title="MIDI Transmit Port"></select>
-
-        <table>
-            <tr>
-                <th class="entry"><label for="division">Division rate <small>(min: 1, max: 127)</small></label></th>
-                <td><input id="division" type="number" min="1" max="127" name="division" value="1" /></td>
-                <td><button id="divSend">Send Division</button></td>
-            </tr>
-            <tr>
-                <th class="entry"><label for="offset">Clock offset <small>(min: 0, max: 126)</small><small>takes effect on clock start</small></label></th>
-                <td><input id="offset" type="number" min="0" max="127" name="offset" value="0" /></td>
-                <td><button id="offSend">Send Offset</button></td>
-            </tr>
-            <tr>
-                <td colspan="3"><button id="store">Store to eeprom</button></td>
-            </tr>
-        </table>
+    <img src="banner.png" width="75%"/>
+    <div>
+        <h1>Set division rate(s) for wonkystuff MIDI clock processors</h1>
+        <div id="inputs">
+            <div>
+                <label for="tx"> Select MIDI output port </label>
+                <select id="tx" name="tx" title="MIDI Transmit Port"></select>
+            </div>
+            <div>
+                <label for="tx"> Select Module Type</label>
+                <select id="modType" name="modType" title="Module">
+                    <option value="0">mb/1</option>
+                    <option value="0">mdiv channel 1</option>
+                    <option value="1">mdiv channel 2</option>
+                    <option value="2">mdiv channel 3</option>
+                    <option value="3">mdiv channel 4</option>
+                </select>
+            </div>
+            <table>
+                <tr id="mdivOnly">
+                    <th class="col1"><label for="mdivId">mdiv ID <small>(min: 1, max: 126)</small></label></th>
+                    <td class="col2"><input id="mdivId" type="number" min="1" max="126" name="mdivId" value="1" /></td>
+                    <td class="col3"><button id="storeId">Write New ID</button><label style="display: block;color: red;"
+                            for="storeId">CAUTION: UPDATES ALL ATTACHED mdiv MODULES!!</label></td>
+                </tr>
+                <tr>
+                    <th class="col1"><label for="division">Division rate <small>(min: 1, max: 128)</small></label></th>
+                    <td class="col2"><input id="division" type="number" min="1" max="128" name="division" value="1" />
+                    </td>
+                    <td class="col3"><button id="divSend">Send Division</button></td>
+                </tr>
+                <tr>
+                    <th class="col1"><label for="offset">Clock offset <small>(min: 0, max: 127)</small><small>takes
+                                effect
+                                on clock start</small></label></th>
+                    <td class="col2"><input id="offset" type="number" min="0" max="127" name="offset" value="0" /></td>
+                    <td class="col3"><button id="offSend">Send Offset</button></td>
+                </tr>
+                <tr>
+                    <td class="storeButton" colspan="3"><button id="store">Store to eeprom</button></td>
+                </tr>
+            </table>
+        </div>
         <h2>Quick lookup</h2>
-        <table id="lookup">
-            <tr>
-                <th>Division</th>
-                <th>Beat</th>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>1/32</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>1/16</td>
-            </tr>
-            <tr>
-                <td>12</td>
-                <td>1/8</td>
-            </tr>
-            <tr>
-                <td>24</td>
-                <td>1/4</td>
-            </tr>
-            <tr>
-                <td>48</td>
-                <td>1/2</td>
-            </tr>
-            <tr>
-                <td colspan="2">&nbsp;</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>1/32t</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>1/16t</td>
-            </tr>
-            <tr>
-                <td>16</td>
-                <td>1/8t</td>
-            </tr>
-            <tr>
-                <td>32</td>
-                <td>1/4t</td>
-            </tr>
-            <tr>
-                <td>64</td>
-                <td>1/2t</td>
-            </tr>
-        </table>
-
+        <div id="inputs">
+            <table id="lookup">
+                <tr>
+                    <th>Division</th>
+                    <th>Beat</th>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>1/32</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>1/16</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>1/8</td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td>1/4</td>
+                </tr>
+                <tr>
+                    <td>48</td>
+                    <td>1/2</td>
+                </tr>
+                <tr>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>1/32t</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>1/16t</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>1/8t</td>
+                </tr>
+                <tr>
+                    <td>32</td>
+                    <td>1/4t</td>
+                </tr>
+                <tr>
+                    <td>64</td>
+                    <td>1/2t</td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <div id="rhs">
+    <div id="logBox">
         <h1>Log messages</h1>
         <div id="shell" />
     </div>
