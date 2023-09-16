@@ -16,7 +16,7 @@
                 access = await navigator.requestMIDIAccess({ sysex: true });
             } catch {
                 const shellBlock = document.getElementById("shell");
-                shellBlock.innerHTML += "your browser doesn't handle webMIDI :'("
+                shellBlock.innerHTML += "It looks like your browser doesn't handle webMIDI — Sorry!"
                 return null;
             }
 
@@ -137,7 +137,7 @@
             const transmit = await midi(chooser("tx"));
 
             function send(line) {
-                shellBlock.innerHTML += '<code>' + line + '</code>\n';
+                //shellBlock.innerHTML += '<code>' + line + '</code>\n';
                 const words = line.split(/\s+/).filter(Boolean);
 
                 const bytes = words.map((x) => Number("0x" + x));
